@@ -211,7 +211,7 @@
 
     .journey {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(7, minmax(0, 1fr));
       gap: 10px;
       padding: 10px;
       background: var(--blue-900);
@@ -268,6 +268,110 @@
     .quick-facts {
       display: grid;
       gap: 12px;
+    }
+
+    .place-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .place-story {
+      display: grid;
+      gap: 14px;
+    }
+
+    .place-card {
+      padding: 18px;
+      background: var(--paper);
+      border-left: 8px solid var(--blue-700);
+      border-radius: var(--radius);
+    }
+
+    .place-card h3 {
+      margin-bottom: 6px;
+      color: var(--blue-900);
+      font-size: 1.14rem;
+    }
+
+    .place-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .landscape-card {
+      position: relative;
+      min-height: 330px;
+      overflow: hidden;
+      padding: 22px;
+      color: var(--white);
+      background: linear-gradient(180deg, #0b5563 0%, #17808b 48%, #ffd166 49%, #fff3c4 100%);
+      border-radius: var(--radius);
+      box-shadow: inset 0 -18px 40px rgba(120, 0, 0, 0.16);
+    }
+
+    .landscape-card::before {
+      content: "";
+      position: absolute;
+      width: 118px;
+      height: 118px;
+      right: 30px;
+      top: 28px;
+      background: #ffd166;
+      border-radius: 50%;
+      box-shadow: 0 0 0 18px rgba(255, 209, 102, 0.25);
+    }
+
+    .mountain,
+    .field {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
+
+    .mountain {
+      height: 190px;
+      background:
+        linear-gradient(135deg, transparent 0 28%, rgba(7, 59, 76, 0.94) 29% 48%, transparent 49%),
+        linear-gradient(45deg, transparent 0 34%, rgba(11, 85, 99, 0.94) 35% 58%, transparent 59%);
+      opacity: 0.95;
+    }
+
+    .field {
+      height: 112px;
+      background:
+        repeating-linear-gradient(105deg, rgba(176, 0, 32, 0.16) 0 10px, transparent 10px 22px),
+        linear-gradient(180deg, #ffd166, #f6b941);
+      border-top: 6px solid rgba(255, 255, 255, 0.42);
+    }
+
+    .school-marker {
+      position: absolute;
+      left: 26px;
+      bottom: 36px;
+      width: min(270px, calc(100% - 52px));
+      padding: 16px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 30px rgba(7, 59, 76, 0.2);
+    }
+
+    .school-marker strong {
+      display: block;
+      color: var(--red-900);
+      font-size: 1rem;
+    }
+
+    .school-marker span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
     }
 
     .fact {
@@ -489,6 +593,7 @@
       }
 
       .identity-grid,
+      .place-layout,
       .knowledge-grid,
       .teacher-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -521,6 +626,7 @@
       }
 
       .identity-grid,
+      .place-layout,
       .journey,
       .knowledge-grid,
       .teacher-grid {
@@ -597,10 +703,11 @@
       <nav class="journey" aria-label="Các phần trong trang">
         <a href="#chao-hoi"><span class="step-number">Bước 1</span><span class="step-name">Chào hỏi</span></a>
         <a href="#thong-tin"><span class="step-number">Bước 2</span><span class="step-name">Thông tin</span></a>
-        <a href="#so-thich"><span class="step-number">Bước 3</span><span class="step-name">Sở thích</span></a>
-        <a href="#kien-thuc"><span class="step-number">Bước 4</span><span class="step-name">Kiến thức</span></a>
-        <a href="#cau-hoi"><span class="step-number">Bước 5</span><span class="step-name">Câu hỏi</span></a>
-        <a href="#giao-vien"><span class="step-number">Bước 6</span><span class="step-name">Giáo viên</span></a>
+        <a href="#que-huong"><span class="step-number">Bước 3</span><span class="step-name">Quê hương</span></a>
+        <a href="#so-thich"><span class="step-number">Bước 4</span><span class="step-name">Sở thích</span></a>
+        <a href="#kien-thuc"><span class="step-number">Bước 5</span><span class="step-name">Kiến thức</span></a>
+        <a href="#cau-hoi"><span class="step-number">Bước 6</span><span class="step-name">Câu hỏi</span></a>
+        <a href="#giao-vien"><span class="step-number">Bước 7</span><span class="step-name">Giáo viên</span></a>
       </nav>
     </section>
 
@@ -626,8 +733,50 @@
       </div>
     </section>
 
+    <section class="section" id="que-huong" aria-labelledby="place-title">
+      <h2 class="section-title" id="place-title"><span class="icon">3</span>Phong cảnh Gia Lai và trường em</h2>
+      <div class="place-layout">
+        <div class="place-story">
+          <article class="place-card">
+            <h3>Gia Lai trong mắt em</h3>
+            <p>
+              Gia Lai là quê hương có nhiều cảnh đẹp của núi rừng Tây Nguyên, không khí trong lành
+              và những con người thân thiện. Em yêu những buổi sáng yên bình, cây xanh và bầu trời
+              rộng mở nơi mình đang học tập.
+            </p>
+          </article>
+
+          <article class="place-card">
+            <h3>Trường Tiểu học Nguyễn Văn Cừ</h3>
+            <p>
+              Trường Tiểu học Nguyễn Văn Cừ là nơi em được học chữ, học cách tự tin trình bày và
+              rèn luyện nhiều kỹ năng tốt. Ở trường, thầy cô luôn hướng dẫn, động viên để em cố gắng
+              hơn mỗi ngày.
+            </p>
+          </article>
+
+          <article class="place-card">
+            <h3>Điều em tự hào</h3>
+            <p>
+              Em tự hào khi được giới thiệu về quê hương Gia Lai và mái trường của mình trong trang
+              web nhỏ này. Đây là động lực để em học tốt, lễ phép và biết yêu quý nơi mình sinh sống.
+            </p>
+          </article>
+        </div>
+
+        <div class="landscape-card" role="img" aria-label="Minh họa phong cảnh Gia Lai với núi, nắng vàng và mái trường">
+          <div class="mountain"></div>
+          <div class="field"></div>
+          <div class="school-marker">
+            <strong>Trường Tiểu học Nguyễn Văn Cừ</strong>
+            <span>Phường Quy Nhơn Nam, tỉnh Gia Lai</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="so-thich" aria-labelledby="hobby-title">
-      <h2 class="section-title" id="hobby-title"><span class="icon">3</span>Sở thích sau giờ học</h2>
+      <h2 class="section-title" id="hobby-title"><span class="icon">4</span>Sở thích sau giờ học</h2>
       <div class="timeline">
         <article class="timeline-item">
           <div class="time-dot">1</div>
@@ -672,7 +821,7 @@
     </section>
 
     <section class="section" id="kien-thuc" aria-labelledby="knowledge-title">
-      <h2 class="section-title" id="knowledge-title"><span class="icon">4</span>Kiến thức dễ hiểu</h2>
+      <h2 class="section-title" id="knowledge-title"><span class="icon">5</span>Kiến thức dễ hiểu</h2>
       <div class="knowledge-grid">
         <article class="knowledge-card">
           <div class="knowledge-symbol">A</div>
@@ -701,7 +850,7 @@
     </section>
 
     <section class="section" id="cau-hoi" aria-labelledby="question-title">
-      <h2 class="section-title" id="question-title"><span class="icon">5</span>Câu hỏi vui về em</h2>
+      <h2 class="section-title" id="question-title"><span class="icon">6</span>Câu hỏi vui về em</h2>
       <div class="question-list">
         <details open>
           <summary>Em tên là gì?</summary>
@@ -731,7 +880,7 @@
     </section>
 
     <section class="section" id="giao-vien" aria-labelledby="teacher-title">
-      <h2 class="section-title" id="teacher-title"><span class="icon">6</span>Góc giáo viên</h2>
+      <h2 class="section-title" id="teacher-title"><span class="icon">7</span>Góc giáo viên</h2>
       <div class="teacher-grid">
         <article class="teacher-card">
           <h3>Mục tiêu học tập</h3>
