@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu bản thân - Trương Chí Kiên</title>
+  <style>
+    :root {
+      --red-900: #780000;
+      --red-700: #b00020;
+      --red-600: #d62828;
+      --red-100: #ffe8e8;
+      --gold: #ffd166;
+      --gold-soft: #fff3c4;
+      --blue-900: #073b4c;
+      --blue-700: #0b5563;
+      --paper: #fffdf8;
+      --white: #ffffff;
+      --ink: #2f1717;
+      --muted: #6b4b4b;
+      --shadow: 0 18px 45px rgba(120, 0, 0, 0.16);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 209, 102, 0.34), transparent 28rem),
+        linear-gradient(180deg, #fff5f5 0%, #fffdf8 45%, #f8fbfc 100%);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 28px;
+      align-items: center;
+      min-height: 360px;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(120, 0, 0, 0.98), rgba(214, 40, 40, 0.94)),
+        linear-gradient(45deg, rgba(255, 209, 102, 0.35), transparent);
+      border-radius: var(--radius);
+      padding: 36px;
+      box-shadow: var(--shadow);
+      animation: rise-in 700ms ease both;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 280px;
+      height: 280px;
+      right: -70px;
+      top: -95px;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      right: 145px;
+      bottom: -85px;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 50%;
+    }
+
+    .avatar {
+      width: 148px;
+      height: 148px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid var(--gold);
+      background: var(--white);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 12px;
+      font-size: clamp(2.1rem, 5vw, 4.25rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .hero-lead {
+      max-width: 760px;
+      margin-bottom: 22px;
+      color: #fff4c6;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 700;
+    }
+
+    .identity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .identity-item {
+      min-height: 94px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: var(--radius);
+      backdrop-filter: blur(8px);
+    }
+
+    .identity-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+
+    .identity-item span {
+      display: block;
+      margin-top: 5px;
+      font-weight: 700;
+    }
+
+    .section {
+      margin-top: 24px;
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid rgba(176, 0, 32, 0.12);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 26px rgba(120, 0, 0, 0.08);
+      animation: rise-in 700ms ease both;
+    }
+
+    .section:nth-of-type(2) {
+      animation-delay: 80ms;
+    }
+
+    .section:nth-of-type(3) {
+      animation-delay: 140ms;
+    }
+
+    .section-title {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+      color: var(--red-900);
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .section-title .icon {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      color: var(--white);
+      background: var(--red-600);
+      border-radius: var(--radius);
+      font-size: 1.35rem;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      padding: 10px;
+      background: var(--blue-900);
+      border-radius: var(--radius);
+    }
+
+    .journey a {
+      display: grid;
+      gap: 5px;
+      min-height: 84px;
+      padding: 12px 10px;
+      color: var(--white);
+      text-align: center;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .journey a:hover,
+    .journey a:focus-visible {
+      transform: translateY(-3px);
+      background: rgba(255, 209, 102, 0.24);
+      outline: none;
+    }
+
+    .step-number {
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .step-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .intro-panel {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .intro-copy {
+      padding: 22px;
+      background: var(--paper);
+      border-left: 8px solid var(--red-600);
+      border-radius: var(--radius);
+      font-size: 1.1rem;
+    }
+
+    .quick-facts {
+      display: grid;
+      gap: 12px;
+    }
+
+    .fact {
+      padding: 16px;
+      background: var(--red-100);
+      border-radius: var(--radius);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--red-900);
+      font-size: 0.9rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      padding-left: 16px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 10px;
+      bottom: 10px;
+      width: 3px;
+      background: linear-gradient(var(--red-600), var(--gold), var(--blue-700));
+      border-radius: 999px;
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .time-dot {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      color: var(--white);
+      background: var(--red-600);
+      border: 4px solid var(--white);
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(214, 40, 40, 0.26);
+      font-weight: 800;
+    }
+
+    .timeline-card,
+    .knowledge-card,
+    .teacher-card {
+      padding: 18px;
+      background: var(--paper);
+      border: 1px solid rgba(7, 59, 76, 0.1);
+      border-radius: var(--radius);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .timeline-card:hover,
+    .knowledge-card:hover,
+    .teacher-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(7, 59, 76, 0.1);
+    }
+
+    .timeline-card h3,
+    .knowledge-card h3,
+    .teacher-card h3 {
+      margin-bottom: 6px;
+      color: var(--blue-900);
+      font-size: 1.13rem;
+    }
+
+    .timeline-card p,
+    .knowledge-card p,
+    .teacher-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .knowledge-grid,
+    .teacher-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .knowledge-card {
+      min-height: 190px;
+      border-top: 6px solid var(--gold);
+    }
+
+    .knowledge-symbol {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 12px;
+      color: var(--white);
+      background: var(--blue-700);
+      border-radius: var(--radius);
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      overflow: hidden;
+      background: #fff7e1;
+      border: 1px solid rgba(214, 40, 40, 0.16);
+      border-radius: var(--radius);
+      transition: background 180ms ease;
+    }
+
+    details[open] {
+      background: #fff1f1;
+    }
+
+    summary {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 16px 18px;
+      color: var(--red-900);
+      cursor: pointer;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: "+";
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      color: var(--white);
+      background: var(--red-600);
+      border-radius: 50%;
+      font-size: 1.15rem;
+    }
+
+    details[open] summary::before {
+      content: "-";
+      background: var(--blue-700);
+    }
+
+    .answer {
+      margin: 0;
+      padding: 0 18px 18px 58px;
+      color: var(--muted);
+    }
+
+    .teacher-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .teacher-card {
+      background: linear-gradient(180deg, var(--white), #f3fbfd);
+      border-top: 6px solid var(--blue-700);
+    }
+
+    .teacher-card ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .teacher-card li + li {
+      margin-top: 6px;
+    }
+
+    footer {
+      margin-top: 24px;
+      padding: 22px;
+      color: var(--white);
+      text-align: center;
+      background: var(--red-900);
+      border-radius: var(--radius);
+      font-weight: 800;
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .intro-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+        justify-items: center;
+      }
+
+      .identity-grid,
+      .knowledge-grid,
+      .teacher-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .journey {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+        padding-top: 12px;
+      }
+
+      .hero,
+      .section {
+        padding: 20px;
+      }
+
+      .avatar-wrap {
+        width: 150px;
+        height: 150px;
+      }
+
+      .avatar {
+        width: 122px;
+        height: 122px;
+      }
+
+      .identity-grid,
+      .journey,
+      .knowledge-grid,
+      .teacher-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline {
+        padding-left: 0;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .time-dot {
+        width: 44px;
+        height: 44px;
+      }
+
+      .answer {
+        padding-left: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero" id="chao-hoi">
+      <div class="avatar-wrap">
+        <img class="avatar" src="avatar.png" alt="Ảnh đại diện chữ T của Trương Chí Kiên">
+      </div>
+
+      <div class="hero-content">
+        <h1>Em là Trương Chí Kiên</h1>
+        <p class="hero-lead">
+          Một trang giới thiệu bản thân vui tươi, dễ hiểu và tự tin của học sinh tiểu học.
+        </p>
+
+        <div class="identity-grid" aria-label="Thông tin chính">
+          <div class="identity-item">
+            <strong>Họ và tên</strong>
+            <span>Trương Chí Kiên</span>
+          </div>
+          <div class="identity-item">
+            <strong>Đội thi</strong>
+            <span>Trường Tiểu học Nguyễn Văn Cừ</span>
+          </div>
+          <div class="identity-item">
+            <strong>Địa phương</strong>
+            <span>Phường Quy Nhơn Nam, tỉnh Gia Lai</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" aria-labelledby="journey-title">
+      <h2 class="section-title" id="journey-title"><span class="icon">1</span>Hành trình của em</h2>
+      <nav class="journey" aria-label="Các phần trong trang">
+        <a href="#chao-hoi"><span class="step-number">Bước 1</span><span class="step-name">Chào hỏi</span></a>
+        <a href="#thong-tin"><span class="step-number">Bước 2</span><span class="step-name">Thông tin</span></a>
+        <a href="#so-thich"><span class="step-number">Bước 3</span><span class="step-name">Sở thích</span></a>
+        <a href="#kien-thuc"><span class="step-number">Bước 4</span><span class="step-name">Kiến thức</span></a>
+        <a href="#cau-hoi"><span class="step-number">Bước 5</span><span class="step-name">Câu hỏi</span></a>
+        <a href="#giao-vien"><span class="step-number">Bước 6</span><span class="step-name">Giáo viên</span></a>
+      </nav>
+    </section>
+
+    <section class="section" id="thong-tin" aria-labelledby="intro-title">
+      <h2 class="section-title" id="intro-title"><span class="icon">2</span>Giới thiệu bản thân</h2>
+      <div class="intro-panel">
+        <p class="intro-copy">
+          Xin chào thầy cô và các bạn! Em tên là Trương Chí Kiên. Em rất vui khi
+          được tham gia đội thi của Trường Tiểu học Nguyễn Văn Cừ. Em luôn cố gắng
+          học tập, rèn luyện sự tự tin và khám phá thêm nhiều điều mới mỗi ngày.
+        </p>
+
+        <div class="quick-facts">
+          <div class="fact">
+            <strong>Điều em yêu thích</strong>
+            Học điều mới, đọc sách, chơi thể thao và khám phá máy tính.
+          </div>
+          <div class="fact">
+            <strong>Điều em đang rèn luyện</strong>
+            Tự tin trình bày, biết lắng nghe và hoàn thành việc học đúng giờ.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="so-thich" aria-labelledby="hobby-title">
+      <h2 class="section-title" id="hobby-title"><span class="icon">3</span>Sở thích sau giờ học</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="time-dot">1</div>
+          <div class="timeline-card">
+            <h3>Ôn lại bài</h3>
+            <p>Em xem lại bài đã học và chuẩn bị bài mới để ngày hôm sau học tốt hơn.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="time-dot">2</div>
+          <div class="timeline-card">
+            <h3>Đọc sách</h3>
+            <p>Em đọc truyện thiếu nhi và sách kiến thức để mở rộng hiểu biết.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="time-dot">3</div>
+          <div class="timeline-card">
+            <h3>Rèn luyện sức khỏe</h3>
+            <p>Em chơi thể thao để cơ thể khỏe mạnh và tinh thần vui vẻ.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="time-dot">4</div>
+          <div class="timeline-card">
+            <h3>Giúp đỡ gia đình</h3>
+            <p>Em giúp bố mẹ những việc nhỏ để học cách sống gọn gàng và có trách nhiệm.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="time-dot">5</div>
+          <div class="timeline-card">
+            <h3>Khám phá máy tính</h3>
+            <p>Em tìm hiểu cách sử dụng máy tính và học thêm những kiến thức lập trình đơn giản.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="kien-thuc" aria-labelledby="knowledge-title">
+      <h2 class="section-title" id="knowledge-title"><span class="icon">4</span>Kiến thức dễ hiểu</h2>
+      <div class="knowledge-grid">
+        <article class="knowledge-card">
+          <div class="knowledge-symbol">A</div>
+          <h3>Tự tin giới thiệu</h3>
+          <p>Khi giới thiệu, em nói rõ tên, trường, địa phương và điều mình yêu thích.</p>
+        </article>
+
+        <article class="knowledge-card">
+          <div class="knowledge-symbol">B</div>
+          <h3>Quản lý thời gian</h3>
+          <p>Em chia thời gian cho học bài, nghỉ ngơi, vận động và giúp gia đình.</p>
+        </article>
+
+        <article class="knowledge-card">
+          <div class="knowledge-symbol">C</div>
+          <h3>Đọc sách mỗi ngày</h3>
+          <p>Đọc sách giúp em biết thêm từ mới, câu chuyện hay và nhiều bài học bổ ích.</p>
+        </article>
+
+        <article class="knowledge-card">
+          <div class="knowledge-symbol">D</div>
+          <h3>Khám phá công nghệ</h3>
+          <p>Học máy tính giúp em sáng tạo, làm việc cẩn thận và giải quyết vấn đề.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="cau-hoi" aria-labelledby="question-title">
+      <h2 class="section-title" id="question-title"><span class="icon">5</span>Câu hỏi vui về em</h2>
+      <div class="question-list">
+        <details open>
+          <summary>Em tên là gì?</summary>
+          <p class="answer">Em tên là Trương Chí Kiên.</p>
+        </details>
+
+        <details>
+          <summary>Em đến từ trường nào?</summary>
+          <p class="answer">Em đến từ đội thi Trường Tiểu học Nguyễn Văn Cừ.</p>
+        </details>
+
+        <details>
+          <summary>Trường của em thuộc địa phương nào?</summary>
+          <p class="answer">Trường của em ở Phường Quy Nhơn Nam, tỉnh Gia Lai.</p>
+        </details>
+
+        <details>
+          <summary>Sau giờ học em thích làm gì?</summary>
+          <p class="answer">Em thích ôn bài, đọc sách, chơi thể thao, giúp bố mẹ và khám phá máy tính.</p>
+        </details>
+
+        <details>
+          <summary>Mục tiêu của em là gì?</summary>
+          <p class="answer">Em muốn học thật tốt, tự tin hơn và tạo được nhiều sản phẩm công nghệ thú vị.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="giao-vien" aria-labelledby="teacher-title">
+      <h2 class="section-title" id="teacher-title"><span class="icon">6</span>Góc giáo viên</h2>
+      <div class="teacher-grid">
+        <article class="teacher-card">
+          <h3>Mục tiêu học tập</h3>
+          <ul>
+            <li>Biết giới thiệu bản thân rõ ràng.</li>
+            <li>Biết sắp xếp ý theo trình tự.</li>
+            <li>Biết chia sẻ sở thích và mục tiêu.</li>
+          </ul>
+        </article>
+
+        <article class="teacher-card">
+          <h3>Gợi ý nhận xét</h3>
+          <ul>
+            <li>Nội dung đầy đủ và gần gũi.</li>
+            <li>Trình bày tự tin, dễ hiểu.</li>
+            <li>Có ý thức học tập và rèn luyện.</li>
+          </ul>
+        </article>
+
+        <article class="teacher-card">
+          <h3>Tiêu chí đánh giá</h3>
+          <ul>
+            <li>Thông tin chính xác.</li>
+            <li>Bố cục rõ ràng.</li>
+            <li>Giao diện đẹp, sinh động.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      Cảm ơn thầy cô và các bạn đã xem trang giới thiệu của em!
+    </footer>
+  </main>
+</body>
+</html>
